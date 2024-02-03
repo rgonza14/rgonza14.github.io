@@ -1,0 +1,78 @@
+---
+import Header from '../components/Header.astro';
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang='es'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='description' content='Astro description' />
+        <meta name='viewport' content='width=device-width' />
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+        <meta name='generator' content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header />
+
+        <slot />
+    </body>
+</html>
+<style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@400;500&display=swap');
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    @layer base {
+        button {
+            @apply bg-transparent hover:bg-[var(--color-button-bg)] text-white font-semibold hover:text-[var(--color-button-text)] py-2 px-4 border border-[var(--color-primary)] hover:border-transparent rounded;
+        }
+    }
+
+    :root {
+        --color-surface: #141218;
+        --color-on-surface: #e6e0e9;
+        --color-primary: #7e74f1;
+        --color-button-bg: #d0bcfe;
+        --color-button-text: #381e72;
+        --font-text: 'Roboto', sans-serif;
+        --font-title: 'Roboto Condensed', sans-serif;
+    }
+    html {
+        background-color: var(--color-surface);
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-size: var(--font-title);
+        font-weight: 700;
+    }
+
+    h2,
+    h3,
+    h3,
+    p,
+    a {
+        font-family: var(--font-text);
+        color: var(--color-on-surface);
+    }
+    @media screen and (max-width: 380px) {
+        #avatar {
+            height: auto;
+            width: auto;
+        }
+    }
+</style>

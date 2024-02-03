@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Projects from '../components/projects/Projects.astro';
+import Section from '../components/Section.astro';
+import CodeIcon from '../components/icons/CodeIcon.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title='Portafolio - Ruiz Gonzalo.'>
+    <main class='px-8'>
+        <section class='w-full mx-auto container lg:max-w-5xl md:max-w-3xl'>
+            <Hero />
+        </section>
+        <Section>
+            <h2 class='flex items-center gap-2 text-4xl'>
+                <CodeIcon class='size-9' />
+                Proyectos
+            </h2>
+            <Projects />
+        </Section>
+    </main>
+</Layout>

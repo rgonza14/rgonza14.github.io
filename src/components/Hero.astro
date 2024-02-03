@@ -1,0 +1,46 @@
+---
+import avatar from '../assets/avatar.jpeg';
+import GitHubIcon from './icons/GitHubIcon.astro';
+import WrapperIcon from './icons/WrapperIcon.astro';
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+---
+
+<div
+    class='flex flex-col justify-between items-center gap-20 sm:flex-row mt-[180px]'
+>
+    <div class='max-w-full lg:max-w-lg md:max-w-sm'>
+        <h1 class='text-4xl text-[var(--color-primary)]'>
+            Ruiz Gonzalo
+            <span class='block text-white'>Desarrollador Fullstack</span>
+        </h1>
+        <p class='mt-8 text-lg'>
+            Estudiante de Ingeniería en Sistemas, y desarrollador autodidacta.
+            Mi compromiso es la mejora continua fusionando los conocimientos
+            acádemicos adquiridos con mi experiencia práctica con el fin de
+            brindar soluciones tecnológicas demandantes
+        </p>
+
+        <div class='flex items-center gap-6'>
+            <WrapperIcon href='https://github.com/rgonza14'>
+                <GitHubIcon
+                    class='size-10 text-white hover:text-[var(--color-button-bg)]'
+                />
+            </WrapperIcon>
+
+            <WrapperIcon>
+                <LinkedInIcon
+                    class='size-10 text-white hover:text-[var(--color-button-bg)]'
+                />
+            </WrapperIcon>
+        </div>
+        <button class='mt-8 block text-base transition duration-300 ease-in-out'
+            >Descargar cv</button
+        >
+    </div>
+    <img
+        src={avatar.src}
+        alt='avatar'
+        class='size-[300px] rounded-full'
+        id='avatar'
+    />
+</div>
