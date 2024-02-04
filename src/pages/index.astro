@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Projects from '../components/projects/Projects.astro';
 import Section from '../components/Section.astro';
 import CodeIcon from '../components/icons/CodeIcon.astro';
+import KeyboardIcon from '../components/icons/KeyboardIcon.astro';
 import Hero from '../components/Hero.astro';
 ---
 
@@ -20,7 +21,10 @@ import Hero from '../components/Hero.astro';
             <Projects />
         </Section>
         <Section>
-            <h2 class='flex items-center gap-2 text-4xl'>Tecnologías</h2>
+            <h2 class='flex items-center gap-2 text-4xl'>
+                <KeyboardIcon class='size-9' />
+                Tecnologías
+            </h2>
         </Section>
     </main>
 </Layout>
