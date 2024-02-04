@@ -1,0 +1,66 @@
+---
+const iconsFrontend = [
+    {
+        title: 'React',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
+    },
+    {
+        title: 'Redux',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg'
+    },
+    {
+        title: 'Tailwind CSS',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg'
+    },
+    {
+        title: 'Sass',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg'
+    }
+];
+
+const iconsBackend = [
+    {
+        title: 'Node.js',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg'
+    },
+    {
+        title: 'Java',
+        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
+    }
+];
+---
+
+<div>
+    <article>
+        <h3 class='mb-8'>Frontend</h3>
+        <div class='flex flex-wrap justify-center gap-x-24'>
+            {
+                iconsFrontend.map(item => {
+                    return (
+                        <div class='inline-flex items-center flex-col flex-1'>
+                            <img src={item.url} alt='' width='85' height='85' />
+                            <h4 class='mt-2'>{item.title}</h4>
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </article>
+    <article class='mt-12'>
+        <h3 class='mb-8'>Backend</h3>
+        <div class='flex
+            justify-center
+            gap-x-24'>
+            {
+                iconsBackend.map(item => {
+                    return (
+                        <div class='text-center'>
+                            <img src={item.url} alt='' width='85' height='85' />
+                            <h4 class='mt-2'>{item.title}</h4>
+                        </div>
+                    );
+                })
+            }
+        </div>
+    </article>
+</div>
