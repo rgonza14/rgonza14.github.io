@@ -1,0 +1,57 @@
+---
+import GitHubIcon from '../icons/GitHubIcon.astro';
+import LinkIcon from '../icons/LinkIcon.astro';
+import LinkButton from '../links-button/LinkButton.astro';
+---
+
+<div class='flex flex-col gap-y-16'>
+    <article
+        class='flex flex-col justify-center gap-8 md:space-x-8 md:space-y-0 md:flex-row sm:w-full'
+    >
+        <div class='w-full md:w-2/5'>
+            <figure
+                class='border rounded-md border-[#1d192b] overflow-hidden w-full'
+            >
+                <img
+                    class='w-full h-full'
+                    src='https://animated-churros-60739d.netlify.app/projects/svgl.webp'
+                />
+            </figure>
+        </div>
+        <div class='flex flex-col w-full md:w-3/5'>
+            <h3>Propjs - A real estate web</h3>
+            <div class='my-2'>
+                <ul class='flex gap-x-4'>
+                    <li>
+                        <span
+                            class='text-[var(--color-tag-text)] bg-[var(--color-tag-bg)] rounded-md py-1 px-2'
+                            >React.Js</span
+                        >
+                    </li>
+                    <li>
+                        <span
+                            class='text-[var(--color-tag-text)] bg-[var(--color-tag-bg)] rounded-md py-1 px-2'
+                            >Express</span
+                        >
+                    </li>
+                </ul>
+            </div>
+            <p class='mt-2'>
+                Biblioteca de logos SVG de las marcas más populares. +10k
+                visitas al mes. +2K svgs descargados. Creado desde cero con
+                Next.js, React y Tailwind CSS.
+            </p>
+
+            <div class='flex gap-x-4 items-end justify-start mt-auto'>
+                <LinkButton>
+                    <GitHubIcon class='size-6' />
+                    GitHub
+                </LinkButton>
+                <LinkButton>
+                    <LinkIcon class='size-6' />
+                    Demo
+                </LinkButton>
+            </div>
+        </div>
+    </article>
+</div>

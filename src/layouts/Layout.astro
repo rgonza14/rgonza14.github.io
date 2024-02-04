@@ -26,12 +26,28 @@ const { title } = Astro.props;
 </html>
 <style is:global>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
     @tailwind base;
     @tailwind components;
     @tailwind utilities;
+
     @layer base {
+        h1,
+        h2,
+        h3 {
+            @apply font-title text-white font-bold tracking-wide;
+        }
+        h1 {
+            @apply text-4xl;
+        }
+        h2 {
+            @apply text-3xl mb-8;
+        }
+        h3 {
+            @apply text-2xl;
+        }
         button {
-            @apply bg-transparent hover:bg-[var(--color-button-bg)] text-white font-semibold hover:text-[var(--color-button-text)] py-2 px-4 border border-[var(--color-primary)] hover:border-transparent rounded;
+            @apply bg-transparent hover:bg-[var(--color-button-bg)] text-white font-semibold hover:text-[var(--color-button-text)] py-2 px-4 border border-[var(--color-primary)] hover:border-transparent rounded text-base transition duration-300 ease-in-out;
         }
     }
 
@@ -41,6 +57,8 @@ const { title } = Astro.props;
         --color-primary: #7e74f1;
         --color-button-bg: #d0bcfe;
         --color-button-text: #381e72;
+        --color-tag-bg: #1d192b;
+        --color-tag-text: #ccc2dc;
         --font-text: 'Roboto', sans-serif;
         --font-title: 'Roboto Condensed', sans-serif;
     }
@@ -53,22 +71,17 @@ const { title } = Astro.props;
         justify-content: center;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-        font-size: var(--font-title);
-        font-weight: 700;
-    }
-
-    h2,
-    h3,
-    h3,
     p,
-    a {
+    a,
+    span {
         font-family: var(--font-text);
+    }
+    p,
+    a,
+    span {
         color: var(--color-on-surface);
     }
+
     @media screen and (max-width: 380px) {
         #avatar {
             height: auto;
