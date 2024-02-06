@@ -4,8 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import Projects from '../components/projects/Projects.astro';
 import Section from '../components/Section.astro';
 import CodeIcon from '../components/icons/CodeIcon.astro';
+import AboutMeIcon from '../components/icons/AboutMeIcon.astro';
 import Hero from '../components/Hero.astro';
-import AboutMe from '../components/icons/AboutMe.astro';
+import AboutMe from '../components/about-me/AboutMe.astro';
 ---
 
 <Layout title='Portafolio - Ruiz Gonzalo.'>
@@ -25,9 +26,10 @@ import AboutMe from '../components/icons/AboutMe.astro';
         </Section>
         <Section>
             <h2>
-                <AboutMe class='size-8' />
+                <AboutMeIcon class='size-8' />
                 Sobre mí
             </h2>
+            <AboutMe />
         </Section>
     </main>
 </Layout>
