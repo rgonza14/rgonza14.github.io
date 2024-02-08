@@ -2,10 +2,86 @@
 import GitHubIcon from '../icons/GitHubIcon.astro';
 import LinkIcon from '../icons/LinkIcon.astro';
 import LinkButton from '../links-button/LinkButton.astro';
+import { app } from './../../firebase/server';
+import { getFirestore } from 'firebase-admin/firestore';
+
+const db = getFirestore(app);
+const collectionRef = db.collection('projects');
+
+const snapshot = await collectionRef.get();
+
+const projectsPretty = snapshot.docs.map(project => project.data());
+
+const fetchTechnology = async id => {
+    const technologiesRef = db.collection('technologies');
+    const snp = await technologiesRef.doc(id).get();
+    return { ...snp.data() };
+};
+
+const getProjects = async arrayProjects => {
+    const resultados = await Promise.all(
+        arrayProjects.map(async project => {
+            const newArray = await Promise.all(
+                project.technologies.map(async technology => {
+                    const resultado = await fetchTechnology(technology.id);
+                    return resultado;
+                })
+            );
+            return { ...project, technologies: newArray };
+        })
+    );
+    return resultados;
+};
+let projects = await getProjects(projectsPretty);
 ---
 
-<div class='flex flex-col gap-y-16'>
-    <article
+<div class='flex flex-col gap-y-16' id='projects-container'>
+    {
+        projects.map(project => (
+            <article class='flex flex-col justify-center gap-8 md:space-x-8 md:space-y-0 md:flex-row sm:w-full'>
+                <div class='w-full md:w-2/5'>
+                    <figure class='border rounded-md border-[#1d192b] overflow-hidden w-full'>
+                        <img
+                            class='w-full h-full'
+                            src={project.imageURL}
+                            loading='lazy'
+                        />
+                    </figure>
+                </div>
+                <div class='flex flex-col w-full md:w-3/5'>
+                    <h3>{project.title}</h3>
+                    <div class='my-2'>
+                        <ul class='flex gap-x-4'>
+                            {project.technologies.map(technology => (
+                                <li>
+                                    <span class='text-[var(--color-tag-text)] bg-[var(--color-tag-bg)] rounded-md py-1 px-2'>
+                                        {technology.title}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <p class='mt-2'>{project.description}</p>
+
+                    <div class='flex gap-x-4 items-end justify-start mt-auto'>
+                        <LinkButton>
+                            <GitHubIcon class='size-6' />
+                            GitHub
+                        </LinkButton>
+                        <LinkButton>
+                            <LinkIcon class='size-6' />
+                            Demo
+                        </LinkButton>
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+</div>
+
+<!-- 
+
+<article
         class='flex flex-col justify-center gap-8 md:space-x-8 md:space-y-0 md:flex-row sm:w-full'
     >
         <div class='w-full md:w-2/5'>
@@ -53,5 +129,4 @@ import LinkButton from '../links-button/LinkButton.astro';
                 </LinkButton>
             </div>
         </div>
-    </article>
-</div>
+    </article> -->
