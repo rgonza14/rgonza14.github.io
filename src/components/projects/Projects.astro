@@ -9,30 +9,7 @@ const db = getFirestore(app);
 const collectionRef = db.collection('projects');
 
 const snapshot = await collectionRef.get();
-
-const projectsPretty = snapshot.docs.map(project => project.data());
-
-const fetchTechnology = async id => {
-    const technologiesRef = db.collection('technologies');
-    const snp = await technologiesRef.doc(id).get();
-    return { ...snp.data() };
-};
-
-const getProjects = async arrayProjects => {
-    const resultados = await Promise.all(
-        arrayProjects.map(async project => {
-            const newArray = await Promise.all(
-                project.technologies.map(async technology => {
-                    const resultado = await fetchTechnology(technology.id);
-                    return resultado;
-                })
-            );
-            return { ...project, technologies: newArray };
-        })
-    );
-    return resultados;
-};
-let projects = await getProjects(projectsPretty);
+const projects = snapshot.docs.map(project => project.data());
 ---
 
 <div class='flex flex-col gap-y-16' id='projects-container'>
@@ -55,7 +32,7 @@ let projects = await getProjects(projectsPretty);
                             {project.technologies.map(technology => (
                                 <li>
                                     <span class='text-[var(--color-tag-text)] bg-[var(--color-tag-bg)] rounded-md py-1 px-2'>
-                                        {technology.title}
+                                        {technology}
                                     </span>
                                 </li>
                             ))}
