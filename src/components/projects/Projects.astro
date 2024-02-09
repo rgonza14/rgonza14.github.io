@@ -10,15 +10,13 @@ const collectionRef = db.collection('projects');
 
 const snapshot = await collectionRef.get();
 const projects = snapshot.docs.map(project => project.data());
-
-
 ---
 
 <div class='flex flex-col gap-y-16' id='projects-container'>
     {
         projects.map(project => (
             <article class='flex flex-col justify-center gap-8 md:space-x-8 md:space-y-0 md:flex-row sm:w-full'>
-                <div class='w-full md:w-2/5'>
+                <div class='w-full md:w-2/5 slide-in-left'>
                     <figure class='border rounded-md border-[#1d192b] overflow-hidden w-full'>
                         <img
                             class='w-full h-full'
@@ -27,7 +25,7 @@ const projects = snapshot.docs.map(project => project.data());
                         />
                     </figure>
                 </div>
-                <div class='flex flex-col w-full md:w-3/5'>
+                <div class='flex flex-col w-full md:w-3/5 slide-in-right'>
                     <h3>{project.title}</h3>
                     <div class='my-2'>
                         <ul class='flex gap-x-4'>
