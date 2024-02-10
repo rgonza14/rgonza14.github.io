@@ -12,24 +12,25 @@ import AboutMe from '../components/about-me/AboutMe.astro';
 
 <Layout title='Portafolio - Ruiz Gonzalo.'>
     <main class='px-4'>
-        <section class='w-full mx-auto container lg:max-w-5xl md:max-w-3xl'>
-            <Hero />
-        </section>
         <Section>
+            <Hero />
+        </Section>
+        <Section id='proyectos'>
             <h2>
                 <CodeIcon class='size-8' />
                 Proyectos
             </h2>
             <Projects />
         </Section>
-        <Section>
+        <Section id='tecnologias'>
             <h2>
                 <KeyboardIcon class='size-9' />
                 Tecnologías
             </h2>
             <Technologies />
         </Section>
-        <Section>
+
+        <Section id='sobre-mi'>
             <h2>
                 <AboutMeIcon class='size-8' />
                 Sobre mí
