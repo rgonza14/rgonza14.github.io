@@ -43,5 +43,15 @@ import LinkButton from './links-button/LinkButton.astro';
         src={avatar.src}
         alt='avatar'
         class='size-[300px] rounded-full slide-in-right'
+        id='avatar'
     />
 </div>
+
+<style>
+    @media screen and (max-width: 380px) {
+        #avatar {
+            height: auto;
+            width: auto;
+        }
+    }
+</style>
