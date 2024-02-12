@@ -7,26 +7,31 @@ const collectionRef = db.collection('technologies');
 
 const snapshot = await collectionRef.get();
 const data = snapshot.docs.map(project => project.data());
-const {technologies} = data[0];
-
+const { technologies } = data[0];
 ---
 
 <div>
-    {technologies.map(item => (
-        <article>
-            <h3 class='mb-8'>{item.title}</h3>
-            <div class='flex flex-wrap justify-center gap-x-24'>
-            {
-                item.icons.map(icon => {
-                    return (
-                        <div class='inline-flex items-center flex-col flex-1'>
-                            <img src={icon.imageURL} alt='' width='85' height='85' loading="lazy" />
-                            <h4 class='mt-2'>{icon.title}</h4>
-                        </div>
-                    );
-                })
-            }
-        </div>
-        </article>
-    ))}
+    {
+        technologies.map(item => (
+            <article class='mt-8'>
+                <h3 class='mb-8'>{item.title}</h3>
+                <div class='flex flex-wrap justify-center gap-x-24'>
+                    {item.icons.map(icon => {
+                        return (
+                            <div class='inline-flex items-center flex-col flex-1'>
+                                <img
+                                    src={icon.imageURL}
+                                    alt=''
+                                    width='85'
+                                    height='85'
+                                    loading='lazy'
+                                />
+                                <h4 class='mt-2'>{icon.title}</h4>
+                            </div>
+                        );
+                    })}
+                </div>
+            </article>
+        ))
+    }
 </div>
