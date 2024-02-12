@@ -3,6 +3,7 @@ import avatar from '../assets/avatar.jpeg';
 import GitHubIcon from './icons/GitHubIcon.astro';
 import WrapperIcon from './icons/WrapperIcon.astro';
 import LinkedInIcon from './icons/LinkedInIcon.astro';
+import LinkButton from './links-button/LinkButton.astro';
 ---
 
 <div
@@ -31,7 +32,8 @@ import LinkedInIcon from './icons/LinkedInIcon.astro';
                 />
             </WrapperIcon>
         </div>
-        <button class='mt-8 block'>Descargar cv</button>
+
+        <LinkButton class='mt-8' href=''>Descargar cv</LinkButton>
     </div>
     <img
         src={avatar.src}
