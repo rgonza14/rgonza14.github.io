@@ -4,6 +4,7 @@ import LinkIcon from '../icons/LinkIcon.astro';
 import LinkButton from '../links-button/LinkButton.astro';
 import { app } from './../../firebase/server';
 import { getFirestore } from 'firebase-admin/firestore';
+import Image from './../../assets/image1.png';
 
 const db = getFirestore(app);
 const collectionRef = db.collection('projects');
@@ -17,7 +18,7 @@ const projects = snapshot.docs.map(project => project.data());
         projects.map(project => (
             <article class='flex flex-col justify-center gap-8 md:space-x-8 md:space-y-0 md:flex-row sm:w-full'>
                 <div class='w-full md:w-2/5 slide-in-left'>
-                    <figure class='border rounded-md border-[#1d192b] overflow-hidden w-full'>
+                    <figure class='border-2 rounded-md border-[var(--color-tag-bg)] overflow-hidden w-full'>
                         <img
                             class='w-full h-full'
                             src={project.imageURL}
@@ -41,11 +42,11 @@ const projects = snapshot.docs.map(project => project.data());
                     <p class='mt-2'>{project.description}</p>
 
                     <div class='flex gap-x-4 items-end justify-start pt-4 md:mt-auto'>
-                        <LinkButton>
+                        <LinkButton href={project.repoURL}>
                             <GitHubIcon class='size-6' />
                             GitHub
                         </LinkButton>
-                        <LinkButton>
+                        <LinkButton href={project.demoURL}>
                             <LinkIcon class='size-6' />
                             Demo
                         </LinkButton>
