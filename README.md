@@ -8,4 +8,4 @@ Portfolio created to present information about me and projects.
 
 ## Technologies used
 
-I used Astro, Tailwind CSS and Firebase to get information about the projects carried out and the technologies I use
+I used Astro, Tailwind CSS and Firebase to get information about the projects carried out and the technologies I use.
