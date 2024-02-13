@@ -5,7 +5,7 @@ const { class: className } = Astro.props;
 
 <a
     href={href}
-    class=`inline-flex items-center justify-center gap-x-2 bg-transparent hover:bg-[var(--color-button-bg)] text-white hover:text-[var(--color-button-text)] py-2 px-4 max-w-fit border border-[var(--color-primary)] hover:border-transparent rounded text-base transition duration-300 ease-in-out cursor-pointer ${className}`
+    class=`inline-flex items-center justify-center gap-x-2 bg-transparent hover:bg-[var(--color-button-bg)] text-white hover:text-[var(--color-button-text)] py-3 px-4 max-w-fit border border-[var(--color-primary)] hover:border-transparent rounded text-base transition duration-300 ease-in-out cursor-pointer ${className}`
 >
     <slot />
 </a>
