@@ -4,6 +4,7 @@ import GitHubIcon from './icons/GitHubIcon.astro';
 import WrapperIcon from './icons/WrapperIcon.astro';
 import LinkedInIcon from './icons/LinkedInIcon.astro';
 import LinkButton from './links-button/LinkButton.astro';
+import CV from './../assets/CV_Ruiz-Gonzalo.pdf';
 ---
 
 <div
@@ -33,9 +34,7 @@ import LinkButton from './links-button/LinkButton.astro';
             </WrapperIcon>
         </div>
 
-        <LinkButton
-            class='mt-12 sm:mt-8'
-            href='https://www.dropbox.com/scl/fi/6y75tgo8huxgoji2t5erv/CV_Ruiz-Gonzalo.pdf?rlkey=2au0272ao9g7nes55367sg5lq&dl=1'
+        <LinkButton class='mt-12 sm:mt-8' href={CV} download='CV_Ruiz-Gonzalo'
             >Descargar cv</LinkButton
         >
     </div>
