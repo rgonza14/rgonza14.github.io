@@ -1,0 +1,33 @@
+---
+const { id, title, contact } = Astro.props as {
+    id: string;
+    title: string;
+    contact: { email?: string; linkedin?: string; github?: string };
+};
+
+const mail = contact.email ? `mailto:${contact.email}` : undefined;
+---
+
+<section id={id} class='flex flex-col gap-6 scroll-mt-20'>
+    <h2 class='text-[20px] tracking-wide text-cyan-300'>{title}</h2>
+
+    <div class='flex flex-col gap-3 text-white/65'>
+        {
+            contact.email && (
+                <p>
+                    Email:{' '}
+                    <a class='text-cyan-300 hover:underline' href={mail}>
+                        {contact.email}
+                    </a>
+                </p>
+            )
+        }
+
+        {contact.linkedin && <p>LinkedIn: {contact.linkedin}</p>}
+        {contact.github && <p>GitHub: {contact.github}</p>}
+    </div>
+
+    <div class='prose prose-invert max-w-none text-white/65'>
+        <slot />
+    </div>
+</section>

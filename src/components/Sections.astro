@@ -1,0 +1,46 @@
+---
+import Divider from './Divider.astro';
+import Hero from './sections/Hero.astro';
+import Skills from './sections/Skills.astro';
+import List from './sections/List.astro';
+import Simple from './sections/Simple.astro';
+import Contact from './sections/Contact.astro';
+import Projects from './sections/Projects.astro';
+
+const { entries } = Astro.props as {
+    entries: Array<{ frontmatter: any; Content: any }>;
+};
+
+const registry: Record<string, any> = {
+    hero: Hero,
+    skills: Skills,
+    list: List,
+    simple: Simple,
+    contact: Contact,
+    projects: Projects
+};
+---
+
+<main
+    class='px-4 md:px-12 pt-10 md:pt-20 pb-10 md:h-screen md:overflow-y-auto md:no-scrollbar'
+>
+    <div class='max-w-225 mx-auto flex flex-col gap-24'>
+        {
+            entries.map(({ frontmatter, Content }) => {
+                const Section = registry[frontmatter.type];
+                if (!Section) return null;
+
+                return (
+                    <>
+                        <Section frontmatter={frontmatter} Content={Content} />
+                        <Divider />
+                    </>
+                );
+            })
+        }
+
+        <footer class='text-center text-[12px] text-white/55 pb-6'>
+            © 2026 · Gonzalo Ruiz
+        </footer>
+    </div>
+</main>

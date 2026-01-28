@@ -1,0 +1,168 @@
+---
+type NavItem = { id: string; label: string };
+
+const { brand, items, lang } = Astro.props as {
+    brand: string;
+    items: NavItem[];
+    lang: 'es' | 'en';
+};
+
+const otherLang = lang === 'es' ? 'en' : 'es';
+const langLabel = lang === 'es' ? 'EN' : 'ES';
+---
+
+<header
+    class='md:hidden sticky top-0 z-50 border-b border-white/10 bg-[#07070b]/85 backdrop-blur'
+>
+    <div class='px-4 h-14 flex items-center justify-between'>
+        <div
+            class='text-[16px] tracking-[0.22em]
+        bg-linear-to-b from-cyan-400 to-violet-400 bg-clip-text text-transparent
+        select-none'
+        >
+            {brand}
+        </div>
+
+        <button
+            id='nav-toggle'
+            type='button'
+            class='inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white/80 hover:text-cyan-300 hover:bg-white/10 transition'
+            aria-label='Open menu'
+            aria-controls='mobile-nav'
+            aria-expanded='false'
+        >
+            <svg
+                width='18'
+                height='18'
+                viewBox='0 0 24 24'
+                fill='none'
+                aria-hidden='true'
+            >
+                <path
+                    d='M4 7h16M4 12h16M4 17h16'
+                    stroke='currentColor'
+                    stroke-width='2'
+                    stroke-linecap='round'></path>
+            </svg>
+        </button>
+    </div>
+
+    <div
+        id='mobile-nav'
+        class='hidden border-t border-white/10 bg-[#07070b]/92'
+        role='dialog'
+        aria-label='Mobile navigation'
+    >
+        <nav class='px-4 py-4 flex flex-col gap-2'>
+            {
+                items.map(it => (
+                    <a
+                        href={`#${it.id}`}
+                        class='rounded-xl px-3 py-2 text-[12px] tracking-[0.22em] text-white/70 hover:text-cyan-300 hover:bg-white/5 transition'
+                    >
+                        {it.label}
+                    </a>
+                ))
+            }
+
+            <div
+                class='mt-2 pt-3 border-t border-white/10 flex items-center justify-between'
+            >
+                <span class='text-[11px] tracking-[0.22em] text-white/45'
+                    >LANG</span
+                >
+                <a
+                    href={`/${otherLang}`}
+                    class='text-[11px] tracking-[0.22em] text-white/60 hover:text-violet-300 transition'
+                    aria-label='Switch language'
+                >
+                    {langLabel}
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <script is:inline>
+        const btn = document.getElementById('nav-toggle');
+        const panel = document.getElementById('mobile-nav');
+
+        const open = () => {
+            panel.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.setAttribute('aria-label', 'Close menu');
+        };
+
+        const close = () => {
+            panel.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-label', 'Open menu');
+        };
+
+        btn?.addEventListener('click', () => {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            expanded ? close() : open();
+        });
+
+        panel?.querySelectorAll("a[href^='#']").forEach(a => {
+            a.addEventListener('click', () => close());
+        });
+
+        window.addEventListener('keydown', e => {
+            if (e.key === 'Escape') close();
+        });
+
+        document.addEventListener('click', e => {
+            const target = e.target;
+            if (!panel || !btn) return;
+            const isOpen = btn.getAttribute('aria-expanded') === 'true';
+            if (!isOpen) return;
+            if (panel.contains(target) || btn.contains(target)) return;
+            close();
+        });
+    </script>
+</header>
+
+<aside
+    class='hidden md:flex
+    md:h-screen md:border-r md:border-white/10
+    px-3 md:px-3
+    pt-5 md:pt-18
+    pb-4 md:pb-18
+    md:flex-col items-center justify-between md:justify-start
+    gap-4 md:gap-12'
+>
+    <div
+        class='text-[20px] tracking-[0.22em]
+      bg-linear-to-b from-cyan-400 to-violet-400 bg-clip-text text-transparent
+      select-none'
+    >
+        {brand}
+    </div>
+
+    <nav class='flex md:flex-col items-center gap-3 md:gap-5'>
+        {
+            items.map(it => (
+                <a
+                    href={`#${it.id}`}
+                    class="
+            text-[11px] tracking-[0.22em] text-white/60
+            hover:text-cyan-300 transition relative
+            after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0
+            after:bg-linear-to-r after:from-cyan-400 after:to-violet-400
+            hover:after:w-full after:transition-all
+          "
+                >
+                    {it.label}
+                </a>
+            ))
+        }
+    </nav>
+
+    <a
+        href={`/${otherLang}`}
+        class='text-[11px] tracking-[0.22em] text-white/55 hover:text-violet-300 transition'
+        aria-label='Switch language'
+    >
+        {langLabel}
+    </a>
+</aside>

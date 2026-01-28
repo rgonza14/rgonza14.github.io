@@ -1,0 +1,44 @@
+---
+type Group = { label: string; items: string[] };
+
+type FM = {
+    id: string;
+    title: string;
+    groups?: Group[];
+};
+
+const { frontmatter } = Astro.props as { frontmatter: FM };
+
+const { id, title, groups = [] } = frontmatter;
+---
+
+<section id={id} class='flex flex-col gap-6 scroll-mt-20'>
+    <header class='flex items-end justify-between gap-4'>
+        <h2 class='tracking-wide text-cyan-300'>{title}</h2>
+    </header>
+
+    <div class='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+        {
+            groups.map(g => (
+                <div class='rounded-xl border border-white/10 bg-white/[0.02] p-4'>
+                    <div class='mb-3 flex items-center justify-between'>
+                        <h3 class='text-[12px] uppercase tracking-[0.18em] text-white/70'>
+                            {g.label}
+                        </h3>
+                        <span class='text-[11px] text-white/40'>
+                            {g.items.length}
+                        </span>
+                    </div>
+
+                    <ul class='flex flex-wrap gap-2'>
+                        {g.items.map(item => (
+                            <li class='rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[12px] text-white/75'>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </div>
+</section>

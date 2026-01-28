@@ -1,0 +1,66 @@
+---
+import { Github, Linkedin } from '@lucide/astro';
+
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+import Button from '../Button.astro';
+
+type FM = {
+    id: string;
+    title: string;
+    accentText?: string;
+};
+
+const { frontmatter, Content } = Astro.props as {
+    frontmatter: FM;
+    Content?: any;
+};
+
+const { id, title } = frontmatter;
+
+type Social = {
+    link: string;
+    icon: AstroComponentFactory;
+};
+
+const socials: Social[] = [
+    {
+        link: 'https://github.com/rgonza14',
+        icon: Github
+    },
+    {
+        link: 'https://www.linkedin.com/in/rgonza14/',
+        icon: Linkedin
+    }
+];
+---
+
+<section id={id} class='flex flex-col gap-6 scroll-mt-20'>
+    <h1
+        class='text-[44px] leading-[1.1] bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent'
+    >
+        {title}
+    </h1>
+
+    {
+        Content && (
+            <div class=' text-sm max-w-none text-white/65 prose-p:leading-relaxed'>
+                <Content />
+            </div>
+        )
+    }
+    <div class='flex items-center gap-x-8'>
+        {
+            socials.map((social: Social) => (
+                <a href={social.link} target='_blank' rel='noopener noreferrer'>
+                    <social.icon size='28' />
+                </a>
+            ))
+        }
+    </div>
+    <div>
+        <Button
+            href='https://2illm3vygo.ufs.sh/f/Qzo0E6eAGv9W6IN1gZRyxdB2ID3bMLeCJE7V0XvK9NWiAwju'
+            >Ver CV</Button
+        >
+    </div>
+</section>

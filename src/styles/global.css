@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap");
+
+@layer base {
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+   background: #07070a;
+  }
+   @media (min-width: 768px) {
+    body {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.12), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(167, 139, 250, 0.12), transparent 40%),
+        #07070a;
+    }
+  }
+  main {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+  
+} 
+
+  main::-webkit-scrollbar {
+    display: none;             
+
+  }
+  h2 {
+    @apply text-xl
+  }
+  span, p, a, li {
+   @apply text-sm
+  }
+
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
