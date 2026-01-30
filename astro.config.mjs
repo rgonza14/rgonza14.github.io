@@ -8,6 +8,6 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
-    site: 'https://rgonza14.github.io',
+    site: 'https://rgonza14.github.io/es',
     base: ''
 });
