@@ -1,3 +1,33 @@
 ---
-return Astro.redirect('/es');
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Sections from '../components/Sections.astro';
+import '../styles/global.css';
+
+const lang = 'es' as const;
+
+const esModules = import.meta.glob('../content/es/*.md', { eager: true });
+const entries = Object.values(esModules)
+    .map((m: any) => ({ frontmatter: m.frontmatter, Content: m.default }))
+    .sort(
+        (a, b) => (a.frontmatter.order ?? 999) - (b.frontmatter.order ?? 999)
+    );
+
+const navItems = entries.map(e => ({
+    id: e.frontmatter.id,
+    label: e.frontmatter.navLabel
+}));
+
+const title = 'Gonzalo Ruiz — Fullstack Developer';
+const description =
+    'Portfolio de Gonzalo Ruiz — Fullstack con foco en APIs, arquitectura, automatización y bases de datos.';
 ---
+
+<Layout lang={lang} title={title} description={description}>
+    <div
+        class='max-w-7xl mx-auto md:grid md:grid-cols-[140px_1fr] md:h-screen md:overflow-hidden'
+    >
+        <Sidebar brand='Ruiz Gonzalo' items={navItems} lang={lang} />
+        <Sections entries={entries} />
+    </div>
+</Layout>

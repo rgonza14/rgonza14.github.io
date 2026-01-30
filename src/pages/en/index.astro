@@ -4,23 +4,11 @@ import Sidebar from '../../components/Sidebar.astro';
 import Sections from '../../components/Sections.astro';
 import '../../styles/global.css';
 
-export async function getStaticPaths() {
-    return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
-}
+const lang = 'en' as const;
 
-const langParam = Astro.params.lang;
-const lang = (langParam === 'en' ? 'en' : 'es') as 'es' | 'en';
-
-const esModules = import.meta.glob('../../content/es/*.md', { eager: true });
 const enModules = import.meta.glob('../../content/en/*.md', { eager: true });
-
-const modules = lang === 'en' ? enModules : esModules;
-
-const entries = Object.values(modules)
-    .map((m: any) => ({
-        frontmatter: m.frontmatter,
-        Content: m.default
-    }))
+const entries = Object.values(enModules)
+    .map((m: any) => ({ frontmatter: m.frontmatter, Content: m.default }))
     .sort(
         (a, b) => (a.frontmatter.order ?? 999) - (b.frontmatter.order ?? 999)
     );
@@ -30,11 +18,9 @@ const navItems = entries.map(e => ({
     label: e.frontmatter.navLabel
 }));
 
-const title = 'Gonzalo Ruiz — Backend Developer';
+const title = 'Gonzalo Ruiz — Fullstack Developer';
 const description =
-    lang === 'es'
-        ? 'Portfolio de Gonzalo Ruiz — Backend con foco en APIs, arquitectura, automatización y bases de datos.'
-        : 'Gonzalo Ruiz portfolio — Backend focused on APIs, architecture, automation, and databases.';
+    'Gonzalo Ruiz portfolio — Fullstack focused on APIs, architecture, automation, and databases.';
 ---
 
 <Layout lang={lang} title={title} description={description}>

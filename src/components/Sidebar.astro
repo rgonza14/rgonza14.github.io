@@ -7,8 +7,8 @@ const { brand, items, lang } = Astro.props as {
     lang: 'es' | 'en';
 };
 
-const otherLang = lang === 'es' ? 'en' : 'es';
 const langLabel = lang === 'es' ? 'EN' : 'ES';
+const otherHref = lang === 'es' ? '/en' : '/';
 
 const handle = '@rgonnza';
 ---
@@ -78,7 +78,7 @@ const handle = '@rgonnza';
             {
                 items.map(it => (
                     <a
-                        href={`#${it.id}`}
+                        href={otherHref}
                         class='rounded-xl px-3 py-2 text-[12px] tracking-[0.22em] text-white/75 hover:text-cyan-300 hover:bg-white/5 transition'
                     >
                         {it.label}
@@ -93,7 +93,7 @@ const handle = '@rgonnza';
                     >LANG</span
                 >
                 <a
-                    href={`/${otherLang}`}
+                    href={otherHref}
                     class='text-[11px] tracking-[0.22em] text-white/90 hover:text-violet-300 transition'
                     aria-label='Switch language'
                 >
@@ -195,7 +195,7 @@ const handle = '@rgonnza';
     </nav>
 
     <a
-        href={`/${otherLang}`}
+        href={otherHref}
         class='text-[11px] tracking-[0.22em] text-white/85 hover:text-cyan-300 transition'
         aria-label='Switch language'
     >
