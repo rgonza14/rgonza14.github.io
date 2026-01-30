@@ -27,9 +27,8 @@ const { id, title, items = [] } = frontmatter;
     <div class='flex flex-col gap-6'>
         {
             items.map(it => (
-                <article class='group w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]'>
+                <article class='group w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] '>
                     <div class='grid gap-0 md:grid-cols-[360px_1fr]'>
-                        {/* Imagen */}
                         <div class='relative aspect-[16/10] md:aspect-auto md:min-h-[220px]'>
                             {it.image ? (
                                 <img
@@ -75,7 +74,7 @@ const { id, title, items = [] } = frontmatter;
                             </header>
 
                             {it.description && (
-                                <p class='leading-relaxed text-white/65 max-w-205'>
+                                <p class='leading-relaxed text-white/90 max-w-205'>
                                     {it.description}
                                 </p>
                             )}

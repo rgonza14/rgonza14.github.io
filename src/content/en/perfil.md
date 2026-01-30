@@ -1,11 +1,10 @@
 ---
 id: perfil
 order: 1
-title: Backend Developer
+title: Fullstack Developer
 navLabel: PROFILE
 type: hero
-accentText: "NestJS · PostgreSQL · TypeORM · React · Astro"
+textCv: View CV
 ---
 
-Backend developer focused on architecture, REST API design, and process automation.
-Strong emphasis on code quality, scalability, and deep problem understanding.
+Fullstack Developer with experience in designing and implementing REST APIs, process automation, and database management, integrating frontend technologies to deliver end-to-end solutions.

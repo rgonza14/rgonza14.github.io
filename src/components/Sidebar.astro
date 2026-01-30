@@ -9,24 +9,45 @@ const { brand, items, lang } = Astro.props as {
 
 const otherLang = lang === 'es' ? 'en' : 'es';
 const langLabel = lang === 'es' ? 'EN' : 'ES';
+
+const handle = '@rgonnza';
 ---
 
 <header
-    class='md:hidden sticky top-0 z-50 border-b border-white/10 bg-[#07070b]/85 backdrop-blur'
+    class='md:hidden sticky top-0 z-50 border-b border-white/10 bg-[#202020]/95'
 >
     <div class='px-4 h-14 flex items-center justify-between'>
-        <div
-            class='text-[16px] tracking-[0.22em]
-        bg-linear-to-b from-cyan-400 to-violet-400 bg-clip-text text-transparent
-        select-none'
-        >
-            {brand}
-        </div>
+        <a href='#top' class='flex items-center gap-3 min-w-0'>
+            <span
+                class='h-9 w-9 rounded-xl border border-white/10 bg-white/5 overflow-hidden shrink-0 grid place-items-center'
+                aria-hidden='true'
+            >
+                <img
+                    src='/me.png'
+                    alt=''
+                    class='h-full w-full object-cover'
+                    loading='eager'
+                />
+            </span>
+
+            <span class='min-w-0 leading-tight'>
+                <span
+                    class='block truncate text-[13px] font-semibold text-white/92'
+                >
+                    {brand}
+                </span>
+                <span
+                    class='block truncate text-[11px] tracking-wide text-white/55'
+                >
+                    {handle}
+                </span>
+            </span>
+        </a>
 
         <button
             id='nav-toggle'
             type='button'
-            class='inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-white/80 hover:text-cyan-300 hover:bg-white/10 transition'
+            class='inline-flex items-center justify-center rounded-xl border border-white/12 bg-white/5 px-3 py-2 text-white/85 hover:text-cyan-300 hover:bg-white/10 transition'
             aria-label='Open menu'
             aria-controls='mobile-nav'
             aria-expanded='false'
@@ -49,7 +70,7 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
 
     <div
         id='mobile-nav'
-        class='hidden border-t border-white/10 bg-[#07070b]/92'
+        class='hidden border-t border-white/10 bg-[#202020]/98'
         role='dialog'
         aria-label='Mobile navigation'
     >
@@ -58,7 +79,7 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
                 items.map(it => (
                     <a
                         href={`#${it.id}`}
-                        class='rounded-xl px-3 py-2 text-[12px] tracking-[0.22em] text-white/70 hover:text-cyan-300 hover:bg-white/5 transition'
+                        class='rounded-xl px-3 py-2 text-[12px] tracking-[0.22em] text-white/75 hover:text-cyan-300 hover:bg-white/5 transition'
                     >
                         {it.label}
                     </a>
@@ -73,7 +94,7 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
                 >
                 <a
                     href={`/${otherLang}`}
-                    class='text-[11px] tracking-[0.22em] text-white/60 hover:text-violet-300 transition'
+                    class='text-[11px] tracking-[0.22em] text-white/90 hover:text-violet-300 transition'
                     aria-label='Switch language'
                 >
                     {langLabel}
@@ -128,16 +149,31 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
     px-3 md:px-3
     pt-5 md:pt-18
     pb-4 md:pb-18
-    md:flex-col items-center justify-between md:justify-start
-    gap-4 md:gap-12'
+    md:flex-col items-center justify-start
+    gap-10 w-[170px]'
 >
-    <div
-        class='text-[20px] tracking-[0.22em]
-      bg-linear-to-b from-cyan-400 to-violet-400 bg-clip-text text-transparent
-      select-none'
-    >
-        {brand}
-    </div>
+    <a href='#top' class='flex items-center gap-3 w-full max-w-[220px]'>
+        <span
+            class='h-11 w-11 rounded-2xl border border-white/10 bg-white/5 overflow-hidden shrink-0'
+            aria-hidden='true'
+        >
+            <img src='/me.png' alt='' class='h-full w-full object-cover' />
+        </span>
+
+        <span class='min-w-0 leading-tight'>
+            <span
+                class='block truncate text-[13px] font-semibold
+          text-white/92'
+            >
+                {brand}
+            </span>
+            <span
+                class='block truncate text-[11px] tracking-wide text-white/55'
+            >
+                {handle}
+            </span>
+        </span>
+    </a>
 
     <nav class='flex md:flex-col items-center gap-3 md:gap-5'>
         {
@@ -145,7 +181,7 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
                 <a
                     href={`#${it.id}`}
                     class="
-            text-[11px] tracking-[0.22em] text-white/60
+            text-[11px] tracking-[0.22em] text-white/85
             hover:text-cyan-300 transition relative
             after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0
             after:bg-linear-to-r after:from-cyan-400 after:to-violet-400
@@ -160,7 +196,7 @@ const langLabel = lang === 'es' ? 'EN' : 'ES';
 
     <a
         href={`/${otherLang}`}
-        class='text-[11px] tracking-[0.22em] text-white/55 hover:text-violet-300 transition'
+        class='text-[11px] tracking-[0.22em] text-white/85 hover:text-cyan-300 transition'
         aria-label='Switch language'
     >
         {langLabel}

@@ -13,11 +13,11 @@ const { id, title } = frontmatter;
 ---
 
 <section id={id} class='flex flex-col gap-6 scroll-mt-20'>
-    <h2 class='text-[20px] tracking-wide text-cyan-300'>{title}</h2>
+    <h2 class='tracking-wide text-primary'>{title}</h2>
 
     {
         Content && (
-            <div class='prose prose-invert max-w-none text-white/65'>
+            <div class='prose prose-invert max-w-none text-white/90'>
                 <Content />
             </div>
         )

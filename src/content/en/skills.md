@@ -4,13 +4,40 @@ order: 2
 title: Skills
 navLabel: SKILLS
 type: skills
-skills:
-  - "NestJS · Node · Express"
-  - "TypeScript · JavaScript"
-  - "PostgreSQL · MySQL · TypeORM"
-  - "REST APIs · JWT · Auth · RBAC"
-  - "Docker · Docker Compose"
-  - "Swagger · OpenAPI"
-  - "React · Astro · Tailwind"
-  - "Git · CI/CD"
+
+groups:
+    - label: Backend
+      items:
+          - NestJS
+          - Node.js
+          - Express
+          - REST APIs
+          - JWT / Authentication
+          - RBAC
+          - Swagger / OpenAPI
+
+    - label: Databases
+      items:
+          - PostgreSQL
+          - MySQL
+          - TypeORM
+
+    - label: Frontend
+      items:
+          - React
+          - Astro
+          - Tailwind CSS
+
+    - label: DevOps / Tooling
+      items:
+          - Docker
+          - Docker Compose
+          - Git
+          - CI/CD
+
+    - label: Languages
+      items:
+          - TypeScript
+          - JavaScript
+          - Java
 ---

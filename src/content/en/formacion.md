@@ -2,8 +2,8 @@
 id: formacion
 order: 5
 title: Education
-navLabel: EDUC
+navLabel: EDUCATION
 type: simple
 ---
 
-Systems Engineering — UTN FRBA
+Systems Engineering — UTN FRBA (In Progress)
