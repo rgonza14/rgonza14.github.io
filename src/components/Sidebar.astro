@@ -78,7 +78,7 @@ const handle = '@rgonnza';
             {
                 items.map(it => (
                     <a
-                        href={otherHref}
+                        href={`#${it.id}`}
                         class='rounded-xl px-3 py-2 text-[12px] tracking-[0.22em] text-white/75 hover:text-cyan-300 hover:bg-white/5 transition'
                     >
                         {it.label}
@@ -90,7 +90,7 @@ const handle = '@rgonnza';
                 class='mt-2 pt-3 border-t border-white/10 flex items-center justify-between'
             >
                 <span class='text-[11px] tracking-[0.22em] text-white/45'
-                    >LANG</span
+                >LANG</span
                 >
                 <a
                     href={otherHref}
