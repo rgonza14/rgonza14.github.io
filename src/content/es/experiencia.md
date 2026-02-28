@@ -10,9 +10,9 @@ items:
       meta: 'NestJS · Java Spring Boot · React · PostgreSQL'
 
       bullets:
-          - Desarrollé un sistema fullstack (ReactJS, NestJS, PostgreSQL) para la gestión de actas y documentación técnica, lo cual permitió reducir significativamente los tiempos de búsqueda, carga y validación de información por parte de la Oficina Técnica de Calidad.
-          - Implementé una API REST en Java Spring Boot para la gestión de datos de empleados con integración a una WebApp utilizada por supervisores para la distribución diaria del personal.
-          - Implementación de autenticación JWT y control de roles (RBAC).
+          - Desarrollo de un sistema fullstack (ReactJS, NestJS, PostgreSQL) para la gestión de actas y documentación técnica que permitió reducir significativamente los tiempos de búsqueda, carga y validación de información por parte de la Oficina Técnica de Calidad. Además, participé en la definición del proceso de digitalización de dossiers comerciales para su entrega, mejorando la trazabilidad documental y el cumplimiento de los plazos del proyecto.
+          - Diseño e implementación de una API REST en Java Spring Boot para el control de stock, maquinaria y personal, integrada a un sistema utilizado por supervisores para la planificación y distribución diaria de equipos de trabajo.
           - Automatización de flujos internos reduciendo tiempos operativos.
+          - Mantenimiento de sistemas en producción, incorporando nuevas funcionalidades y refactorizando módulos para optimizar el rendimiento y estabilidad.
           - Trabajé en conjunto con diferentes áreas para el relevamiento de requerimientos y mejora continua de procesos.
 ---
