@@ -11,33 +11,27 @@ groups:
           - NestJS
           - Node.js
           - Express
+          - .NET
+          - Typescript
+          - Java Spring Boot
           - REST APIs
-          - JWT / Authentication
-          - RBAC
-          - Swagger / OpenAPI
 
     - label: Databases
       items:
           - PostgreSQL
           - MySQL
-          - TypeORM
+          - MongoDB
 
     - label: Frontend
       items:
           - React
           - Astro
-          - Tailwind CSS
+          - Next.js
 
-    - label: DevOps / Tooling
+    - label: Tooling
       items:
           - Docker
           - Docker Compose
           - Git
-          - CI/CD
 
-    - label: Languages
-      items:
-          - TypeScript
-          - JavaScript
-          - Java
 ---
