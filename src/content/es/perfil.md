@@ -7,4 +7,4 @@ type: hero
 textCv: Ver CV
 ---
 
-Fullstack Developer con experiencia en el diseño e implementación de APIs REST, automatización de procesos y gestión de bases de datos, integrando tecnologías frontend para soluciones end-to-end.
+Desarrollador fullstack con fuerte orientación al backend, priorizando claridad en el diseño, mantenibilidad y escalabilidad. Concibo el desarrollo de software como un medio para aportar valor más allá de la implementación técnica, enfocándome en generar soluciones que impacten en procesos, objetivos de negocio y mejoren la experiencia de las personas.

@@ -7,4 +7,4 @@ type: hero
 textCv: View CV
 ---
 
-Fullstack Developer with experience in designing and implementing REST APIs, process automation, and database management, integrating frontend technologies to deliver end-to-end solutions.
+Full-stack developer with a strong backend focus, prioritizing clarity in design, maintainability, and scalability. I view software development as a means to deliver value beyond technical implementation, focusing on creating solutions that positively impact processes, business goals, and the overall user experience.
