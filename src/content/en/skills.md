@@ -14,6 +14,7 @@ groups:
           - .NET
           - Typescript
           - Java Spring Boot
+          - Python Django
           - REST APIs
 
     - label: Databases

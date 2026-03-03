@@ -14,6 +14,7 @@ groups:
           - Express
           - .NET
           - Java Spring Boot
+          - Python (Django)
           - REST APIs
 
     - label: Bases de datos
