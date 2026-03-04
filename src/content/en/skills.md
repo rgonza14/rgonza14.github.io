@@ -15,7 +15,7 @@ groups:
           - Typescript
           - Java Spring Boot
           - Python Django
-          - REST APIs
+          - APIs Rest
 
     - label: Databases
       items:

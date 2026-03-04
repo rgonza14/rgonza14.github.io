@@ -15,7 +15,7 @@ groups:
           - .NET
           - Java Spring Boot
           - Python (Django)
-          - REST APIs
+          - APIs Rest
 
     - label: Bases de datos
       items:
