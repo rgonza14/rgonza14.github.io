@@ -28,11 +28,12 @@ groups:
           - React
           - Astro
           - Next.js
+          - Angular
 
     - label: Tooling
       items:
           - Docker
-          - Docker Compose
+          - Kubernetes
           - Git
 
 ---

@@ -6,7 +6,7 @@ navLabel: EXPERIENCIA
 type: list
 items:
     - title: 'Fullstack Developer — OBRAL S.A.'
-      time: 'Febrero 2025 - Diciembre 2025'
+      time: 'Enero 2025 - Diciembre 2025'
       meta: 'NestJS · Java Spring Boot · React · PostgreSQL'
 
       bullets:
